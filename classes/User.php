@@ -1,16 +1,16 @@
 <?php 
 
+require_once __DIR__ . '/Card.php';
 
 class User {
 
-    protected $name;
-    protected $lastname;
-    protected $username;
-    protected $password;
-    protected $mail;
-    protected $creditCard;
-    protected $card;
-    protected $cart;
+    protected string $name;
+    protected string $lastname;
+    protected string $username;
+    protected string $password;
+    protected string $mail;
+    protected Card $card;
+    protected $cart; //array? 
 
     /**
      * the User component
@@ -21,61 +21,56 @@ class User {
      * @param  mixed $mail The E-mail indicated by the User
      * @param  mixed $card The User's credit card
      * @param  mixed $User's cart
-    */
-
-    public function __construct($name, $lastname, $username, $password, $mail, $card = null)
+     */
+    public function __construct(string $name, string $lastname, string $username, string $password, string $mail,  Card $card = null)
     {
         $this -> name = $name;
         $this -> lastname = $lastname;
         $this -> username = $username;
         $this -> password = $password;
         $this -> mail = $mail;
-        $this -> creditCard = $creditCard;
         $this -> card = $card;
+        /* $this -> cart = $cart; */
     }
-
+    
     /**
-    * Get User's Name
-    *
-    * @return string
-    */
+     * Get USer's Name
+     *
+     * @return string
+     */
     public function getName(): string {
         return $this -> name;
     }    
-
     /**
-    * Get User's  Lastname
-    *
-    * @return string
-    */
+     * Get User's  Lastname
+     *
+     * @return string
+     */
     public function getLastname(): string {
         return $this -> name;
     }    
-
     /**
-    * Get User's  Username
-    *
-    * @return string
-    */
+     * Get User's  Username
+     *
+     * @return string
+     */
     public function getUsername(): string{
         return $this -> username;
     }    
-
     /**
-    * Get User's  Mail
-    *
-    * @return string
-    */
+     * Get User's  Mail
+     *
+     * @return string
+     */
     public function getMail() :string{
         return $this -> mail;
     }    
-
     /**
-    * Get User's Card
-    *
-    * @return int
-    */
-    public function getCard(): int{
+     * Get User's Card
+     *
+     * @return Card
+     */
+    public function getCard(): Card {
         return $this -> card;
     }
 }
