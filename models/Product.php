@@ -19,7 +19,7 @@ class Product
      * @param  float $price Price's Product
      * @param  $serialNumber Unique serial numbers of Product
      */
-    public function __construct(string $name, string $genre, string $category, string $description, float $price,$serialNumber)
+    public function __construct(string $name, string $genre, string $category, string $description, float $price, $serialNumber = null)
     {
         $this -> name = $name;
         $this -> genre = $genre;
@@ -29,6 +29,7 @@ class Product
         /* $this -> setSerialNumber($serialNumber); */
         $this -> setSerialNumber($serialNumber);
     }
+    
     /**
      * getName
      *
@@ -38,6 +39,7 @@ class Product
     {
         return $this -> name;
     }
+
     /**
      * setName
      *
@@ -48,6 +50,7 @@ class Product
     {
         return $this -> name = $name;
     }
+
     /**
      * getGenre
      *
@@ -57,6 +60,7 @@ class Product
     {
         return $this -> genre;
     }
+
     /**
      * setGenre
      *
@@ -67,6 +71,7 @@ class Product
     {
         return $this -> genre = $genre;
     }
+
     /**
      * getCategory
      *
@@ -76,6 +81,7 @@ class Product
     {
         return $this -> category;
     }
+
     /**
      * setCategory
      *
@@ -85,6 +91,7 @@ class Product
     {
         return $this -> category = $category;
     }
+
     /**
      * getDescription
      *
@@ -94,6 +101,7 @@ class Product
     {
         return $this -> description;
     }
+
     /**
      * setDescription
      *
@@ -103,6 +111,7 @@ class Product
     {
         return $this -> description = $description;
     }
+
     /**
      * getPrice
      *
@@ -112,6 +121,7 @@ class Product
     {
         return $this -> price . ' $';
     }
+
     /**
      * setPrice
      *
@@ -122,15 +132,17 @@ class Product
     {
         return $this -> price = round($price, 2);
     }
+
     /**
      * getSerialNumber
      *
      * @return int
      */
-    public function getSerialNumber(): int
+    public function getSerialNumber(): string
     {
         return $this -> serialNumber;
     }
+
     /**
      * setSerialNumber
      *
@@ -139,13 +151,15 @@ class Product
      */
     public function setSerialNumber($serialNumber)
     {
-        $serialNumber_length = strlen((string)$serialNumber);
+        /*$serialNumber_length = strlen((string)$serialNumber);
         if($serialNumber_length <= 10){
             return $this -> serialNumber = $serialNumber;
         }
         else {
             return $this -> serialNumber = 'invalid number';
-        }
+        }*/
+        $serialNumber = uniqid();
+        return $this -> serialNumber = $serialNumber;
     }
 }
 ?>
