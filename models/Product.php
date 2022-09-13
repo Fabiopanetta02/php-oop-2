@@ -117,9 +117,10 @@ class Product
      *
      * @return $price
      */
-    public function getPrice()
+    public function getPrice() :float
     {
-        return $this -> price . ' $';
+        /* return $this -> price . ' $'; */
+        return $this -> price;
     }
 
     /**
